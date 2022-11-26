@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MatchStats</string>
+    <string name="efootball_new_star_in_the_making">Match Stats</string>
+    <string name="new_game">New game</string>
+    <string name="select_home_team">Select home team</string>
+    <string name="confirm_teams">Confirm</string>
+</resources>
