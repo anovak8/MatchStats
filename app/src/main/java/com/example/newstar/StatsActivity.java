@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 public class StatsActivity extends AppCompatActivity {
 
     private int streli = 0;
@@ -25,6 +27,10 @@ public class StatsActivity extends AppCompatActivity {
     private Button rumeniGosti;
     private Button rdeciGosti;
     private Button rdeciDomaci;
+    private Button golDomaci;
+    private int gol_domaci = 0;
+    LottieAnimationView zoga;
+    private int i = 0;
 
 
     @Override
@@ -89,6 +95,7 @@ public class StatsActivity extends AppCompatActivity {
 
                 strelGosti.setText(String.valueOf(streli_gosti));
 
+
             }
         });
 
@@ -134,6 +141,28 @@ public class StatsActivity extends AppCompatActivity {
 
             }
         });
+
+        //gol
+
+        golDomaci = findViewById(R.id.golDomaci);
+        zoga=findViewById(R.id.zoga);
+        zoga.loop(false);
+        golDomaci.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (i == 0){
+                    zoga.playAnimation();
+                    gol_domaci += 1;
+                    golDomaci.setText(String.valueOf(gol_domaci));
+
+                }
+
+            }
+        });
+
+
+
+
 
     }
 
