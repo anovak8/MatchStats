@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Anze/AndroidStudioProjects/NewStar/app/src/main/res/drawable/circle.xml" value="0.2645" />
         <entry key="..\:/Users/Anze/AndroidStudioProjects/NewStar/app/src/main/res/drawable/kartoni_rumeni.xml" value="0.2645" />
         <entry key="..\:/Users/Anze/AndroidStudioProjects/NewStar/app/src/main/res/drawable/roundedbutton.xml" value="0.2645" />
         <entry key="..\:/Users/Anze/AndroidStudioProjects/NewStar/app/src/main/res/drawable/statss.xml" value="0.1635" />
@@ -10,7 +11,7 @@
         <entry key="..\:/Users/Anze/AndroidStudioProjects/NewStar/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Anze/AndroidStudioProjects/NewStar/app/src/main/res/layout/activity_new_game.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/Anze/AndroidStudioProjects/NewStar/app/src/main/res/layout/new_game_fragment.xml" value="0.264" />
-        <entry key="..\:/Users/Anze/AndroidStudioProjects/NewStar/app/src/main/res/layout/stats.xml" value="0.37273550724637683" />
+        <entry key="..\:/Users/Anze/AndroidStudioProjects/NewStar/app/src/main/res/layout/stats.xml" value="0.4" />
       </map>
     </option>
   </component>

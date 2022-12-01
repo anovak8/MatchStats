@@ -1,10 +1,17 @@
 package com.example.newstar;
+import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ProgressBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.util.Log;
@@ -39,6 +46,13 @@ public class StatsActivity extends AppCompatActivity {
     private int gol_gosti;
     LottieAnimationView zoga;
     private int i = 0;
+    private int zacetna_posest = 50;
+    private int trenutna_domaci = 50;
+    private int trenutna_gosti = 50;
+    private ProgressBar posest;
+    private Button posestDomaci;
+    private Button posestGosti;
+    private Button pavza;
 
 
     public abstract class DoubleClickListener implements View.OnClickListener {
@@ -255,6 +269,78 @@ public class StatsActivity extends AppCompatActivity {
             @Override
             public void onSingleClick() {
                 Log.i("onClick", "single");
+            }
+        });
+
+        //progress
+        posest =findViewById(R.id.posest);
+        posestDomaci = findViewById(R.id.posestDomaci);
+        posestGosti = findViewById(R.id.posestGosti);
+
+        final CountDownTimer countDownTimerDomaci = new CountDownTimer(100*1000,1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                trenutna_gosti -= 1;
+                trenutna_domaci +=1;
+                posestDomaci.setText(String.valueOf(trenutna_domaci) + " %");
+                posestGosti.setText(String.valueOf(trenutna_gosti) + " %");
+                zacetna_posest = zacetna_posest + 1;
+                posest.setProgress(zacetna_posest);
+                posest.setMax(100);
+
+
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        };
+
+        final CountDownTimer countDownTimerGosti = new CountDownTimer(100*1000,1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                trenutna_gosti += 1;
+                trenutna_domaci -=1;
+                posestDomaci.setText(String.valueOf(trenutna_domaci) + " %");
+                posestGosti.setText(String.valueOf(trenutna_gosti) + " %");
+                zacetna_posest = zacetna_posest - 1;
+                posest.setProgress(zacetna_posest);
+                posest.setMax(100);
+
+
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        };
+
+        pavza = findViewById(R.id.pavza);
+        pavza.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                countDownTimerDomaci.cancel();
+                countDownTimerGosti.cancel();
+            }
+        });
+
+        posestGosti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                countDownTimerDomaci.cancel();
+                countDownTimerGosti.start();
+            }
+        });
+
+        posestDomaci.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                countDownTimerGosti.cancel();
+                countDownTimerDomaci.start();
             }
         });
 
