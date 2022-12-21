@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="12dp"
+    app:cardCornerRadius="16dp"
+    android:layout_margin="16dp"
+    android:backgroundTint="#efefef">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="vertical">>
+
+        <TextView
+            android:id="@+id/domaci"
+            style="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DoBb"
+            android:textColor="@color/black"
+            android:textSize="10dp"  />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/match_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textSize="24dp"
+                android:textColor="@color/black"
+                style="bold"
+                />
+            <TextView
+                android:id="@+id/d_gol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gol 1"
+                android:textSize="12dp"
+                android:textColor="@color/black"
+                style="bold"
+                />
+            <TextView
+                android:id="@+id/g_gol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="gol 1"
+                android:textSize="12dp"
+                android:textColor="@color/black"
+                style="bold"
+                />
+
+            <TextView
+                android:id="@+id/d_ru"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rumeni 1"
+                android:textSize="10dp"
+                android:textColor="@color/black"
+                style="bold"
+                />
+            <TextView
+                android:id="@+id/g_ru"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rumeni 2"
+                android:textSize="10dp"
+                android:textColor="@color/black"
+                style="bold"
+                />
+            <TextView
+                android:id="@+id/d_rd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rdeci 1"
+                android:textSize="10dp"
+                android:textColor="@color/black"
+                style="bold"
+                />
+            <TextView
+                android:id="@+id/g_rd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rdeci 2"
+                android:textSize="10dp"
+                android:textColor="@color/black"
+                style="bold"
+                />
+            <TextView
+                android:id="@+id/d_s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="D Strel 1"
+                android:textSize="10dp"
+                android:textColor="@color/black"
+                style="bold"
+                />
+            <TextView
+                android:id="@+id/g_s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="G Strel 2"
+                android:textSize="10dp"
+                android:textColor="@color/black"
+                style="bold"
+                />
+            <TextView
+                android:id="@+id/d_p"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="P 1"
+                android:textSize="10dp"
+                android:textColor="@color/black"
+                style="bold"
+                />
+            <TextView
+                android:id="@+id/g_p"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="P 2"
+                android:textSize="10dp"
+                android:textColor="@color/black"
+                style="bold"
+                />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/gosti"
+            style="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Moravče"
+            android:textColor="@color/black"
+            android:textSize="10dp" />
+    </LinearLayout>
+
+
+
+
+</androidx.cardview.widget.CardView>

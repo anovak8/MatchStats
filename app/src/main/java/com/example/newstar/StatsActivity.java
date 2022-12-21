@@ -1,10 +1,14 @@
 package com.example.newstar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.ProgressBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,6 +57,8 @@ public class StatsActivity extends AppCompatActivity {
     private Button posestDomaci;
     private Button posestGosti;
     private Button pavza;
+    private Button konec;
+    DBHelperFinal DB;
 
 
     public abstract class DoubleClickListener implements View.OnClickListener {
@@ -280,13 +286,16 @@ public class StatsActivity extends AppCompatActivity {
         final CountDownTimer countDownTimerDomaci = new CountDownTimer(100*1000,1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                trenutna_gosti -= 1;
-                trenutna_domaci +=1;
+                if(trenutna_domaci < 100){
+                    trenutna_gosti -= 1;
+                    trenutna_domaci +=1;
+                }
                 posestDomaci.setText(String.valueOf(trenutna_domaci) + " %");
                 posestGosti.setText(String.valueOf(trenutna_gosti) + " %");
                 zacetna_posest = zacetna_posest + 1;
                 posest.setProgress(zacetna_posest);
                 posest.setMax(100);
+
 
 
             }
@@ -300,13 +309,16 @@ public class StatsActivity extends AppCompatActivity {
         final CountDownTimer countDownTimerGosti = new CountDownTimer(100*1000,1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                trenutna_gosti += 1;
-                trenutna_domaci -=1;
+                if(trenutna_gosti < 100){
+                    trenutna_gosti += 1;
+                    trenutna_domaci -=1;
+                }
                 posestDomaci.setText(String.valueOf(trenutna_domaci) + " %");
                 posestGosti.setText(String.valueOf(trenutna_gosti) + " %");
                 zacetna_posest = zacetna_posest - 1;
                 posest.setProgress(zacetna_posest);
                 posest.setMax(100);
+
 
 
             }
@@ -343,6 +355,79 @@ public class StatsActivity extends AppCompatActivity {
                 countDownTimerDomaci.start();
             }
         });
+
+        //zakljuck
+
+        /*private int streli = 0;
+    private int progress = 0;
+    private int streli_domaci = 0;
+    private int streli_gosti = 0;
+    private int rumeni_domaci = 0;
+    private int rumeni_gosti = 0;
+    private int rdeci_gosti = 0;
+    private int rdeci_domaci = 0;
+    private ProgressBar progressBarStreli;
+    private Button strelDomaci;
+    private Button strelGosti;
+    private Button rumeniDomaci;
+    private Button rumeniGosti;
+    private Button rdeciGosti;
+    private Button rdeciDomaci;
+    private Button golDomaci;
+    private int gol_domaci = 0;
+    private Button golGosti;
+    private int gol_gosti;
+    LottieAnimationView zoga;
+    private int i = 0;
+    private int zacetna_posest = 50;
+    private int trenutna_domaci = 50;
+    private int trenutna_gosti = 50;
+    private ProgressBar posest;
+    private Button posestDomaci;
+    private Button posestGosti;
+    private Button pavza;
+    private Button konec;
+    domaci
+    gostujoci
+
+         */
+
+        DB = new DBHelperFinal(this);
+
+        konec = findViewById(R.id.konec);
+        konec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String domaciTXT = domaci.getText().toString().trim();
+                String gostiTXT = gostujoci.getText().toString();
+                int gol_domaciTXT = gol_domaci;
+                int gol_gostiTXT = gol_gosti;
+                int rumeni_domaciTXT = rumeni_domaci;
+                int rumeni_gostiTXT = rumeni_gosti;
+                int rdeci_domaciTXT = rdeci_domaci;
+                int rdeci_gostiTXT = rdeci_gosti;
+                int streli_domaciTXT = streli_domaci;
+                int streli_gostiTXT = streli_gosti;
+                int trenutna_domaciTXT = trenutna_domaci;
+                int trenutna_gostiTXT = trenutna_gosti;
+
+                Boolean checkinsertdata = DB.insertuserdata(domaciTXT,gostiTXT,gol_domaciTXT,gol_gostiTXT,rumeni_domaciTXT,rumeni_gostiTXT,rdeci_domaciTXT,rdeci_gostiTXT,streli_domaciTXT,streli_gostiTXT,trenutna_domaciTXT,trenutna_gostiTXT);
+                if(checkinsertdata == true){
+                    Toast.makeText(StatsActivity.this,"Failed", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(StatsActivity.this, "Added Successfully!", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+        konec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(StatsActivity.this, History.class);
+                startActivity(i);
+            }
+        });
+
 
     }
 

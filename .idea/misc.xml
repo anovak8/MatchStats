@@ -3,15 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Anze/AndroidStudioProjects/NewStar/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2645" />
         <entry key="..\:/Users/Anze/AndroidStudioProjects/NewStar/app/src/main/res/drawable/circle.xml" value="0.2645" />
+        <entry key="..\:/Users/Anze/AndroidStudioProjects/NewStar/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2645" />
         <entry key="..\:/Users/Anze/AndroidStudioProjects/NewStar/app/src/main/res/drawable/kartoni_rumeni.xml" value="0.2645" />
         <entry key="..\:/Users/Anze/AndroidStudioProjects/NewStar/app/src/main/res/drawable/roundedbutton.xml" value="0.2645" />
         <entry key="..\:/Users/Anze/AndroidStudioProjects/NewStar/app/src/main/res/drawable/statss.xml" value="0.1635" />
         <entry key="..\:/Users/Anze/AndroidStudioProjects/NewStar/app/src/main/res/drawable/streli_progress.xml" value="0.2115" />
-        <entry key="..\:/Users/Anze/AndroidStudioProjects/NewStar/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Anze/AndroidStudioProjects/NewStar/app/src/main/res/layout/activity_history.xml" value="0.1" />
+        <entry key="..\:/Users/Anze/AndroidStudioProjects/NewStar/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Anze/AndroidStudioProjects/NewStar/app/src/main/res/layout/activity_new_game.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/Anze/AndroidStudioProjects/NewStar/app/src/main/res/layout/course_rv_item.xml" value="0.1" />
+        <entry key="..\:/Users/Anze/AndroidStudioProjects/NewStar/app/src/main/res/layout/my_row.xml" value="0.536" />
         <entry key="..\:/Users/Anze/AndroidStudioProjects/NewStar/app/src/main/res/layout/new_game_fragment.xml" value="0.264" />
-        <entry key="..\:/Users/Anze/AndroidStudioProjects/NewStar/app/src/main/res/layout/stats.xml" value="0.4" />
+        <entry key="..\:/Users/Anze/AndroidStudioProjects/NewStar/app/src/main/res/layout/stats.xml" value="0.264" />
+        <entry key="..\:/Users/Anze/AndroidStudioProjects/NewStar/app/src/main/res/layout/userentry.xml" value="0.32169576059850374" />
       </map>
     </option>
   </component>
