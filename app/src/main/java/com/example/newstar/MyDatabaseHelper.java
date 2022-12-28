@@ -32,7 +32,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_HOME_POSESSION = "home_p";
     private static final String COLUMN_AWAY_POSESSION = "away_p";
 
-
     public MyDatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
@@ -85,7 +84,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
 
     }
-
 
     Cursor readAllData(){
         String query = "SELECT * FROM " + TABLE_NAME;

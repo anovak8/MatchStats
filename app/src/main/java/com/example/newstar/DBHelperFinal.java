@@ -13,7 +13,7 @@ public class DBHelperFinal extends SQLiteOpenHelper {
 
     private Context context;
 
-    private static final String TABLE_NAME="matchData";
+    private static final String TABLE_NAME="old_match";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_HOME_TEAM= "home_team";
     private static final String COLUMN_AWAY_TEAM= "away_team";
@@ -31,7 +31,7 @@ public class DBHelperFinal extends SQLiteOpenHelper {
 
 
     public DBHelperFinal(Context context) {
-        super(context, "MatchesData.db", null, 1);
+        super(context, "Matches.db", null, 1);
     }
 
     @Override
@@ -49,10 +49,9 @@ public class DBHelperFinal extends SQLiteOpenHelper {
 
     }
 
-
     @Override
     public void onUpgrade(SQLiteDatabase DB, int i, int ii) {
-        DB.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        //DB.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);  #poglejj kasneje
         onCreate(DB);
     }
 

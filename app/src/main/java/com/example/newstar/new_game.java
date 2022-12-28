@@ -8,13 +8,16 @@ import java.util.Date;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class new_game extends AppCompatActivity {
+    //klubi za samoizpis, lahko se dodaja notri
     private static final String[] KLUBI = new String[]{
             "Maribor",
             "Olimpija",
@@ -42,19 +45,13 @@ public class new_game extends AppCompatActivity {
         SimpleDateFormat dateFormat;
         String date;
 
-
         AutoCompleteTextView editText = findViewById(R.id.actv);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>( this, android.R.layout.simple_list_item_1, KLUBI);
         editText.setAdapter(adapter);
 
-
         AutoCompleteTextView editTextAway = findViewById(R.id.actv1);
         ArrayAdapter<String> adapterAway = new ArrayAdapter<String>( this, android.R.layout.simple_list_item_1, KLUBI);
         editTextAway.setAdapter(adapterAway);
-
-
-        //if (adapter1 != adapter)
-        //    editText1.setAdapter(adapter1);
 
         //datum
         dateTimeDisplay = (TextView)findViewById(R.id.editTextDate);
@@ -66,24 +63,31 @@ public class new_game extends AppCompatActivity {
         Button next = (Button) findViewById(R.id.submitTeams);
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), StatsActivity.class);
-                //posiljanje imena ekip
-                String getHome = editText.getText().toString();
-                String getAway = editTextAway.getText().toString();
-                String getDatum = dateTimeDisplay.getText().toString();
-                Bundle bundleDatum = new Bundle();
-                Bundle bundle = new Bundle();
-                Bundle bundle1 = new Bundle();
-                bundle.putString("Home", getHome);
-                bundle1.putString("Away", getAway);
-                bundleDatum.putString("Datum", getDatum);
-                myIntent.putExtras(bundleDatum);
-                myIntent.putExtras(bundle);
-                myIntent.putExtras(bundle1);
-                //konec posiljanje imena ekip
-                startActivityForResult(myIntent, 0);
-            }
+                //čekiranje praznih vnosnih polj
+                if( TextUtils.isEmpty(editTextAway.getText()) || TextUtils.isEmpty(editText.getText())){
+                    Toast.makeText(new_game.this, "Team names must be filled.", Toast.LENGTH_SHORT).show();
+                }else if ( TextUtils.equals(editText.getText(),editTextAway.getText())){
+                    Toast.makeText(new_game.this, "Team names cannot be the same.", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Intent myIntent = new Intent(view.getContext(), StatsActivity.class);
+                    //posiljanje imena ekip
+                    String getHome = editText.getText().toString();
+                    String getAway = editTextAway.getText().toString();
+                    String getDatum = dateTimeDisplay.getText().toString();
+                    Bundle bundleDatum = new Bundle();
+                    Bundle bundle = new Bundle();
+                    Bundle bundle1 = new Bundle();
+                    bundle.putString("Home", getHome);
+                    bundle1.putString("Away", getAway);
+                    bundleDatum.putString("Datum", getDatum);
+                    myIntent.putExtras(bundleDatum);
+                    myIntent.putExtras(bundle);
+                    myIntent.putExtras(bundle1);
 
+                    startActivityForResult(myIntent, 0);
+                }
+            }
         });
     }
 }

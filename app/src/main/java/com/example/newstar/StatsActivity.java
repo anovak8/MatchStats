@@ -50,9 +50,11 @@ public class StatsActivity extends AppCompatActivity {
     private int gol_gosti;
     LottieAnimationView zoga;
     private int i = 0;
-    private int zacetna_posest = 50;
-    private int trenutna_domaci = 50;
-    private int trenutna_gosti = 50;
+    private int zacetna_posest = 0;
+    private int trenutna_domaci = 0;
+    private int trenutna_gosti = 0;
+    private int procentna_domaci = 0;
+    private int procentna_gosti = 0;
     private ProgressBar posest;
     private Button posestDomaci;
     private Button posestGosti;
@@ -117,7 +119,6 @@ public class StatsActivity extends AppCompatActivity {
         datum.setText(Datum);
         gostujoci.setText(away);
 
-
         //streli
         progressBarStreli =findViewById(R.id.progressBar);
         strelDomaci = findViewById(R.id.domaciStreli);
@@ -130,7 +131,7 @@ public class StatsActivity extends AppCompatActivity {
 
                 streli_domaci = streli_domaci + 1;
                 streli = streli_domaci + streli_gosti;
-                //progress = progress + ((streli_domaci/streli)*100);
+
                 if(streli_domaci == 1 && streli_gosti == 0){
                     progress = progress + 100;
                     progressBarStreli.setProgress(progress);
@@ -278,7 +279,7 @@ public class StatsActivity extends AppCompatActivity {
             }
         });
 
-        //progress
+        //posest
         posest =findViewById(R.id.posest);
         posestDomaci = findViewById(R.id.posestDomaci);
         posestGosti = findViewById(R.id.posestGosti);
@@ -286,18 +287,15 @@ public class StatsActivity extends AppCompatActivity {
         final CountDownTimer countDownTimerDomaci = new CountDownTimer(100*1000,1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                if(trenutna_domaci < 100){
-                    trenutna_gosti -= 1;
-                    trenutna_domaci +=1;
-                }
-                posestDomaci.setText(String.valueOf(trenutna_domaci) + " %");
-                posestGosti.setText(String.valueOf(trenutna_gosti) + " %");
-                zacetna_posest = zacetna_posest + 1;
-                posest.setProgress(zacetna_posest);
-                posest.setMax(100);
+                trenutna_domaci += 1;
+                zacetna_posest += 1;
 
+                procentna_domaci = (trenutna_domaci*100 / zacetna_posest);
+                procentna_gosti = (trenutna_gosti *100 / zacetna_posest);
+                posestDomaci.setText(procentna_domaci  + " %");
+                posestGosti.setText(procentna_gosti  + " %");
 
-
+                posest.setProgress(procentna_domaci);
             }
 
             @Override
@@ -309,18 +307,15 @@ public class StatsActivity extends AppCompatActivity {
         final CountDownTimer countDownTimerGosti = new CountDownTimer(100*1000,1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                if(trenutna_gosti < 100){
-                    trenutna_gosti += 1;
-                    trenutna_domaci -=1;
-                }
-                posestDomaci.setText(String.valueOf(trenutna_domaci) + " %");
-                posestGosti.setText(String.valueOf(trenutna_gosti) + " %");
-                zacetna_posest = zacetna_posest - 1;
-                posest.setProgress(zacetna_posest);
-                posest.setMax(100);
+                trenutna_gosti += 1;
+                zacetna_posest += 1;
 
+                procentna_domaci =  (trenutna_domaci*100 / zacetna_posest);
+                procentna_gosti =   (trenutna_gosti*100 / zacetna_posest);
+                posestDomaci.setText(procentna_domaci + " %");
+                posestGosti.setText(procentna_gosti + " %");
 
-
+                posest.setProgress(procentna_domaci);
             }
 
             @Override
@@ -358,40 +353,6 @@ public class StatsActivity extends AppCompatActivity {
 
         //zakljuck
 
-        /*private int streli = 0;
-    private int progress = 0;
-    private int streli_domaci = 0;
-    private int streli_gosti = 0;
-    private int rumeni_domaci = 0;
-    private int rumeni_gosti = 0;
-    private int rdeci_gosti = 0;
-    private int rdeci_domaci = 0;
-    private ProgressBar progressBarStreli;
-    private Button strelDomaci;
-    private Button strelGosti;
-    private Button rumeniDomaci;
-    private Button rumeniGosti;
-    private Button rdeciGosti;
-    private Button rdeciDomaci;
-    private Button golDomaci;
-    private int gol_domaci = 0;
-    private Button golGosti;
-    private int gol_gosti;
-    LottieAnimationView zoga;
-    private int i = 0;
-    private int zacetna_posest = 50;
-    private int trenutna_domaci = 50;
-    private int trenutna_gosti = 50;
-    private ProgressBar posest;
-    private Button posestDomaci;
-    private Button posestGosti;
-    private Button pavza;
-    private Button konec;
-    domaci
-    gostujoci
-
-         */
-
         DB = new DBHelperFinal(this);
 
         konec = findViewById(R.id.konec);
@@ -408,27 +369,20 @@ public class StatsActivity extends AppCompatActivity {
                 int rdeci_gostiTXT = rdeci_gosti;
                 int streli_domaciTXT = streli_domaci;
                 int streli_gostiTXT = streli_gosti;
-                int trenutna_domaciTXT = trenutna_domaci;
-                int trenutna_gostiTXT = trenutna_gosti;
+                int trenutna_domaciTXT = procentna_domaci;
+                int trenutna_gostiTXT = procentna_gosti;
 
                 Boolean checkinsertdata = DB.insertuserdata(domaciTXT,gostiTXT,gol_domaciTXT,gol_gostiTXT,rumeni_domaciTXT,rumeni_gostiTXT,rdeci_domaciTXT,rdeci_gostiTXT,streli_domaciTXT,streli_gostiTXT,trenutna_domaciTXT,trenutna_gostiTXT);
                 if(checkinsertdata == true){
-                    Toast.makeText(StatsActivity.this,"Failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(StatsActivity.this,"Added Successfully!", Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(StatsActivity.this, "Added Successfully!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(StatsActivity.this, "Failed", Toast.LENGTH_SHORT).show();
                 }
 
-            }
-        });
-        konec.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
                 Intent i = new Intent(StatsActivity.this, History.class);
                 startActivity(i);
+
             }
         });
-
-
     }
-
 }

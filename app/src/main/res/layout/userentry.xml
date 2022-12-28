@@ -6,7 +6,7 @@
     app:cardElevation="12dp"
     app:cardCornerRadius="16dp"
     android:layout_margin="16dp"
-    android:backgroundTint="#efefef">
+    android:backgroundTint="#23A15A">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,9 +19,11 @@
             style="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textStyle="normal|bold|italic"
+            android:fontFamily="sans-serif-medium"
             android:text="DoBb"
             android:textColor="@color/black"
-            android:textSize="10dp"  />
+            android:textSize="14dp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -34,29 +36,48 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1"
-                android:textSize="24dp"
+                android:textSize="16dp"
                 android:textColor="@color/black"
                 style="bold"
                 />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" SCORE:"
+                android:textSize="10dp" />
+
             <TextView
                 android:id="@+id/d_gol"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Gol 1"
-                android:textSize="12dp"
+                android:textSize="10dp"
                 android:textColor="@color/black"
                 style="bold"
                 />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" - "
+                android:textSize="10dp" />
+
             <TextView
                 android:id="@+id/g_gol"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="gol 1"
-                android:textSize="12dp"
+                android:textSize="10dp"
                 android:textColor="@color/black"
                 style="bold"
                 />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" YELLOWS: "
+                android:textSize="10dp" />
             <TextView
                 android:id="@+id/d_ru"
                 android:layout_width="wrap_content"
@@ -66,6 +87,13 @@
                 android:textColor="@color/black"
                 style="bold"
                 />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "
+                android:textSize="10dp" />
+
             <TextView
                 android:id="@+id/g_ru"
                 android:layout_width="wrap_content"
@@ -75,6 +103,12 @@
                 android:textColor="@color/black"
                 style="bold"
                 />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" REDS: "
+                android:textSize="10dp" />
             <TextView
                 android:id="@+id/d_rd"
                 android:layout_width="wrap_content"
@@ -84,6 +118,13 @@
                 android:textColor="@color/black"
                 style="bold"
                 />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" - "
+                android:textSize="10dp" />
+
             <TextView
                 android:id="@+id/g_rd"
                 android:layout_width="wrap_content"
@@ -94,6 +135,11 @@
                 style="bold"
                 />
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" SHOTS: "
+                android:textSize="10dp" />
+            <TextView
                 android:id="@+id/d_s"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -102,6 +148,13 @@
                 android:textColor="@color/black"
                 style="bold"
                 />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textSize="10dp" />
+
             <TextView
                 android:id="@+id/g_s"
                 android:layout_width="wrap_content"
@@ -112,6 +165,11 @@
                 style="bold"
                 />
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" P: "
+                android:textSize="10dp" />
+            <TextView
                 android:id="@+id/d_p"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -120,6 +178,12 @@
                 android:textColor="@color/black"
                 style="bold"
                 />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" : "
+                android:textSize="10dp" />
             <TextView
                 android:id="@+id/g_p"
                 android:layout_width="wrap_content"
@@ -138,9 +202,11 @@
             style="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textStyle="normal|bold|italic"
+            android:fontFamily="sans-serif-medium"
             android:text="Moravče"
             android:textColor="@color/black"
-            android:textSize="10dp" />
+            android:textSize="14dp" />
     </LinearLayout>
 
 
